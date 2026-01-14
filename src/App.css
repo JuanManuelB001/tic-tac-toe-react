@@ -7,7 +7,3 @@
   align-items: center;
   
 }
-.board-row {
-  display: grid;
-  grid-template-columns: repeat(3, 10vw);
-}

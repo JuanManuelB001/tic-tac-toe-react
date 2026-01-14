@@ -1,0 +1,31 @@
+.status {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 10vw);
+  grid-template-rows: repeat(3, 10vh);
+}
+
+/* quitar borde superior */
+.square:nth-child(-n + 3) {
+  border-top: none;
+}
+
+/* quitar borde inferior */
+.square:nth-child(n + 7) {
+  border-bottom: none;
+}
+
+/* quitar borde izquierdo */
+.square:nth-child(3n + 1) {
+  border-left: none;
+}
+
+/* quitar borde derecho */
+.square:nth-child(3n) {
+  border-right: none;
+}

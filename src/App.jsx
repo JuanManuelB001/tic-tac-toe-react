@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
-import { keys } from 'man/lib/objects';
+import { Link } from "react-router-dom";
 import { Board } from './components/Board';
 
 function App() {
@@ -18,38 +17,16 @@ function App() {
 
   }
 
-  function jumpTo(nexMove){
-    setCurrentMove(nexMove);
-  }
-
-  const moves = history.map((squares, move)=>{
-    let description
-    if(move >0){
-      description= "Go to Move # ", move;
-    }
-    else{
-      description= "Go to gate Start";
-    }
-    return (
-      <li key={move}>
-        <button onClick={()=> jumpTo(move)}>
-          {description}
-        </button>
-      </li>
-    )
-  });
-
   return (
    <div className="game">
     <div className="game-board">
       <Board xIsNext={xIsNext} squares={currentSquares} onplay={handlePlay}/>
     </div>
-    <div className="game-info">
-      <ol>
-        {moves}
-      </ol>
-    </div>
+    <Link to="/history" state={{history, currentMove}}>
+  <button>Ir a historial</button>
+</Link>
    </div>
+   
   )
 }
 
