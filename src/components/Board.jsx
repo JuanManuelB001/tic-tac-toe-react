@@ -20,7 +20,10 @@ export function Board({ xIsNext, squares, onplay }) {
 
     // si ya tiene 3 fichas, borrar la más antigua
     if (playerPositions.length === 3) {
-      const oldestPosition = playerPositions[0];
+      // BORRA UN NUMERO ALEATORIO
+      let num = Math.floor(Math.random()*3);
+      console.log(num);
+      const oldestPosition = playerPositions[num];
       nextSquares[oldestPosition] = null;
     }
 
