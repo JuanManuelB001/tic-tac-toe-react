@@ -1,13 +1,15 @@
 .status {
-  font-size: 20px;
+  font-size: 3.2rem;
   margin-bottom: 10px;
   text-align: center;
+  margin: 30px 15px;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 10vw);
   grid-template-rows: repeat(3, 10vh);
+  
 }
 
 /* quitar borde superior */

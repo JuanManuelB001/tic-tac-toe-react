@@ -2,8 +2,31 @@
 
 .game{
   display: flex;
+  flex-direction: column;
   margin-top: 120px;
   justify-content: center;
   align-items: center;
   
+}
+
+.menu-juego{
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.menu-juego button{
+  background-color: #0e73c0;
+  border-radius: 10px;
+  color: rgb(10, 10, 10);
+  padding: 8px 15px;
+  border: none;
+  outline: none;
+  box-shadow: 0 10px 20px #0d6cb5;
+  margin: 10px 15px;
+  transition: all 0.8s ease;
+}
+
+.menu-juego button:hover{
+  transform: scale(1.1);
 }

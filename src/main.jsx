@@ -7,5 +7,5 @@ import { Routers } from './routes/routes.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Routers/>
-  </StrictMode>,
+  </StrictMode>
 )
