@@ -2,13 +2,14 @@
   font-size: 3.2rem;
   margin-bottom: 10px;
   text-align: center;
-  margin: 30px 15px;
+  margin: 0 auto;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 10vw);
   grid-template-rows: repeat(3, 10vh);
+  margin-bottom: 0.1rem;
   
 }
 
@@ -30,4 +31,12 @@
 /* quitar borde derecho */
 .square:nth-child(3n) {
   border-right: none;
+}
+
+@media (max-width: 660px){
+  .board{
+    width: 100%;
+    margin: 0 auto;
+    margin-left: 25%;
+  }
 }

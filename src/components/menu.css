@@ -6,14 +6,48 @@
     margin-top: 15%;
 }
 .menu{
-    width: 50%;
+    width: 70%;
     text-align: center;
+    
+}
+.player-2{
+    text-decoration: none;
+    color: black;
+    width: 80%;
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 3px;
+
+}
+.option-menu{
+    transition: 0.4s all ease-in-out;
+    margin:  10px auto;
 }
 
+.option-menu:hover{
+    font-size: 13px;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+/* ECONO DE SELECCION*/
+
+.option-menu::before{
+    content: ">";
+    position: absolute;
+    left: -10px;
+    opacity: 0;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+.option-menu:hover::before{
+    opacity: 1;
+    left: -5px;
+}
 .slide-in{
-    
     animation: glow 2s ease ;
 }
+
+
 
 @keyframes glow{
     from{

@@ -40,6 +40,7 @@ function App() {
   }
 
   return (
+    <div className="slide-left">
     <div className="game">
       <Marcador props={score} />
       <div className="game-board">
@@ -57,6 +58,7 @@ function App() {
       <button onClick={() => reiniciarJuego()}>Jugar Otra Vez</button>
       <button onClick={() => borrarJuego()}>Reiniciar</button>
       </div>
+    </div>
     </div>
   );
 }

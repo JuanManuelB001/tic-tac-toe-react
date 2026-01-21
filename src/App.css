@@ -1,21 +1,13 @@
-
-
-.game{
+.game {
   display: flex;
   flex-direction: column;
   margin-top: 120px;
   justify-content: center;
   align-items: center;
-  
 }
 
-.menu-juego{
-  align-items: center;
-  justify-content: center;
-  
-}
 
-.menu-juego button{
+.menu-juego button {
   background-color: #0e73c0;
   border-radius: 10px;
   color: rgb(10, 10, 10);
@@ -27,6 +19,27 @@
   transition: all 0.8s ease;
 }
 
-.menu-juego button:hover{
+.menu-juego button:hover {
   transform: scale(1.1);
+}
+
+.menu-juego {
+  align-items: center;
+  justify-content: center;
+}
+.slide-left {
+  position: absolute;
+  inset: 0;
+  animation: slide 1s ease forwards;
+  
+}
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }
