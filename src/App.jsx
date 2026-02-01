@@ -36,6 +36,7 @@ function App({ticAi}) {
   const borrarJuego = ()=>{
     reiniciarJuego();
     setScore({x:0, o:0});
+    localStorage.setItem("data", { x: 0, o: 0 });
   }
   function handleWin(winner) {
   if (gameOver || !winner) return; 
