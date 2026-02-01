@@ -36,7 +36,7 @@ export function TicTacToeAI({ xIsNext, squares, onPlay, gameOver }) {
     if (availableSquares.length > 0) {
       const randomIndex = Math.floor(Math.random() * availableSquares.length);
       const move = availableSquares[randomIndex];
-      
+
       nextSquares[move] = currentPlayer;
       onPlay(nextSquares); // Enviamos el nuevo tablero de vuelta a App.js
     }
