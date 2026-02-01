@@ -11,7 +11,7 @@ export function Routers(){
             <Routes>
                 <Route path="/" element={<Menu/>}  />
                 <Route path="/history" element={<HistorialGame/>} />
-                <Route path="/2-player" element={<App/>} />
+                <Route path="/2-player" element={<App ticAi={false}/>} />
                 <Route path="/1-player" element={<Player_1/>} />
             </Routes>
         </Router>

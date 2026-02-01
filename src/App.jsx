@@ -4,14 +4,15 @@ import "./App.css";
 import { Link } from "react-router-dom";
 import { Board } from "./components/Board";
 import { Marcador } from "./components/Marcador";
-
-function App() {
+import { TicTacToeAI } from "./components/TicTacToeAi";
+function App({ticAi}) {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
   const [score, setScore] = useState({ x: 0, o: 0 });
   const [gameOver, setGameOver] = useState(false);
   let currentSquares = history[currentMove];
+  
 
   function handlePlay(nexSquares) {
     const nexHistory = [...history.slice(0, currentMove + 1), nexSquares];
@@ -52,6 +53,14 @@ function App() {
         />
       </div>
       <div className="menu-juego">
+        {ticAi &&
+          <TicTacToeAI 
+          xIsNext={xIsNext} 
+          squares={currentSquares} 
+          onPlay={handlePlay} 
+          gameOver={gameOver} 
+        />
+        }
         <Link to="/history" state={{ history, currentMove }}>
         <button>Ir a historial</button>
       </Link>
