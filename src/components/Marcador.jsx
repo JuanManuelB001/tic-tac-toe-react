@@ -1,27 +1,19 @@
-import {  useEffect, useState } from "react";
-import "./marcador.css"
-
-export function Marcador({props}) {
-  const [data, setData] = useState(()=>{
-    const saved = localStorage.getItem("data");
-    return saved ? JSON.stringify(saved): { x: 0, o: 2 };
-  });
+import "./marcador.css";
 
 
-  useEffect(()=>{
-    localStorage.setItem("data", JSON.stringify(props));
+export function Marcador({ props }) {
+  
+  
+  const scoreX = props?.x ?? 0;
+  const scoreO = props?.o ?? 0;
 
-  },[props]);
- 
- return (
-  <div className="marcador">
-    <p className="letter-marcado">Marcador</p>
-
-    <div className="puntos">
-      <span className="punto-x">X: {data.x}</span>
-      <span className="punto-o">O: {data.o}</span>
+  return (
+    <div className="marcador">
+      <p className="letter-marcado">Marcador</p>
+      <div className="puntos">
+        <span className="punto-x">X: {scoreX}</span>
+        <span className="punto-o">O: {scoreO}</span>
+      </div>
     </div>
-  </div>
-);
-
+  );
 }

@@ -9,7 +9,15 @@ function App({ticAi}) {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
-  const [score, setScore] = useState({ x: 0, o: 0 });
+  const [score, setScore] = useState(() => {
+  try {
+    const saved = localStorage.getItem("data");
+    // Si existe y no es "undefined", parsealo. Si no, usa el default.
+    return saved ? JSON.parse(saved) : { x: 0, o: 0 };
+  } catch (error) {
+    return { x: 0, o: 0 };
+  }
+});
   const [gameOver, setGameOver] = useState(false);
   let currentSquares = history[currentMove];
   
@@ -30,15 +38,26 @@ function App({ticAi}) {
     setScore({x:0, o:0});
   }
   function handleWin(winner) {
-    if (gameOver) return; // evita sumar varias veces
+  if (gameOver || !winner) return; 
 
-    setScore((prev) => ({
-      ...prev,
-      [winner.toLowerCase()]: prev[winner.toLowerCase()] + 1,
-    }));
+  setScore((prev) => {
+    // Si por alguna razón prev es null, lo inicializamos aquí
+    const currentScore = prev || { x: 0, o: 0 };
+    const key = winner.toLowerCase();
 
-    setGameOver(true);
-  }
+    return {
+      ...currentScore,
+      [key]: (currentScore[key] || 0) + 1,
+    };
+  });
+
+  setGameOver(true);
+}
+
+  // ACTUALIZAR LOCALSTORAGE
+  useEffect(()=>{
+    localStorage.setItem("data", JSON.stringify(score));
+  }, [score])
 
   return (
     <div className="slide-left">
