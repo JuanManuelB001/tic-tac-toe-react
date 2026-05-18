@@ -1,17 +1,39 @@
+/* ===== STATUS ===== */
 .status {
   font-size: 3.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   text-align: center;
+}
+
+/* ===== BOARD ===== */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: clamp(280px, 40vw, 600px);
+  aspect-ratio: 1 / 1;
   margin: 0 auto;
 }
 
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 10vw);
-  grid-template-rows: repeat(3, 10vh);
-  margin-bottom: 0.1rem;
-  
+/* ===== SQUARE ===== */
+.square {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: clamp(2rem, 5vw, 5rem);
+
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+
+  cursor: pointer;
 }
+
+/* ===== BORDES DEL TIC TAC TOE ===== */
 
 /* quitar borde superior */
 .square:nth-child(-n + 3) {
@@ -33,10 +55,35 @@
   border-right: none;
 }
 
-@media (max-width: 660px){
-  .board{
-    width: 100%;
-    margin: 0 auto;
-    margin-left: 25%;
+/* ===== DESKTOP GRANDE ===== */
+@media (min-width: 1200px) {
+  .board {
+    width: 600px;
+  }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1200px) {
+  .board {
+    width: 500px;
+  }
+
+  .status {
+    font-size: 2.5rem;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 720px) {
+  .board {
+    width: 300px;
+  }
+
+  .status {
+    font-size: 2rem;
+  }
+
+  .square {
+    font-size: 3rem;
   }
 }
